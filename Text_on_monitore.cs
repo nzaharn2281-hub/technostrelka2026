@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,22 +7,27 @@ using UnityEngine;
 public class Text_on_monitore : MonoBehaviour
 {
     public TMP_Text task;
+    public GameObject point;
+    public Color col_text;
     public TMP_FontAsset we;
-    public string lev1 = "Найди фишинговые сервисы среди ваших сообщений";
-    public string lev2 = "Ты оставил свою почту на чужём пк. Тебе пришло уведомление. Что ты будешь делать?";
-    public string lev3 = "Твой друн в игре предложил тебе выгодную сделку. Что ты сделаешь?";
-    public string lev4 = "Ты оставил свою почту на чужём пк. Тебе пришло уведомление. Что ты будешь делать?";
-    public string lev5 = "Найди фишинговые сервисы среди ваших сообщений";
+    public string lev1 = "РќР°Р№РґРё С„РёС€РёРЅРіРѕРІС‹Рµ СЃРµСЂРІРёСЃС‹ СЃСЂРµРґРё РІР°С€РёС… СЃРѕРѕР±С‰РµРЅРёР№";
+    public string lev2 = "РўС‹ РѕСЃС‚Р°РІРёР» СЃРІРѕСЋ РїРѕС‡С‚Сѓ РЅР° С‡СѓР¶С‘Рј РїРє. РўРµР±Рµ РїСЂРёС€Р»Рѕ СѓРІРµРґРѕРјР»РµРЅРёРµ. Р§С‚Рѕ С‚С‹ Р±СѓРґРµС€СЊ РґРµР»Р°С‚СЊ?";
+    public string lev3 = "РўРІРѕР№ РґСЂСѓРЅ РІ РёРіСЂРµ РїРѕРїСЂРѕСЃРёР» РѕС‡РµРЅСЊ СЃСЂРѕС‡РЅРѕ СЃРєРёРЅСѓС‚СЊ РµРјСѓ РґРµРЅРµРі. РўРІРѕРё РґРµР№СЃС‚РІРёСЏ?";
+    public string lev4 = "РўС‹ РѕСЃС‚Р°РІРёР» СЃРІРѕСЋ РїРѕС‡С‚Сѓ РЅР° С‡СѓР¶С‘Рј РїРє. РўРµР±Рµ РїСЂРёС€Р»Рѕ СѓРІРµРґРѕРјР»РµРЅРёРµ. Р§С‚Рѕ С‚С‹ Р±СѓРґРµС€СЊ РґРµР»Р°С‚СЊ?";
+    public string lev5 = "РќР°Р№РґРё С„РёС€РёРЅРіРѕРІС‹Рµ СЃРµСЂРІРёСЃС‹ СЃСЂРµРґРё РІР°С€РёС… СЃРѕРѕР±С‰РµРЅРёР№";
+    public string lev6 = "РџРѕР·РґСЂР°РІР»СЏСЋ, С‚С‹ РЅР°Р±СЂР°Р»";
     public bool level2;
     public bool level3;
     public bool level4;
     public bool level5;
+    public bool level6;
 
     // Start is called before the first frame update
     void Start()
     {
         task.text = lev1;
         task.font = we;
+        task.color = col_text;
     }
 
     // Update is called once per frame
@@ -31,18 +37,27 @@ public class Text_on_monitore : MonoBehaviour
         if(level2 == true)
         {
             task.text = lev2;
+            level2 = false;
         }
         if (level3 == true)
         {
             task.text = lev3;
+            level3 = false;
         }
         if (level4 == true)
         {
             task.text = lev4;
+            level4 = false;
         }
         if (level5 == true)
         {
             task.text = lev5;
+            level5 = false;
+        }
+        if (level6 == true)
+        {
+            task.text = lev6 + point.GetComponent<Points>().point.ToString() + "РѕС‡РєРѕРІ!";
+            level6 = false;
         }
 
     }
